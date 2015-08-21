@@ -14,11 +14,20 @@
                 <button type="submit" class='btn btn-info'>SUBMIT</button>
             </form>
 
-            <form action='/delete_all_stylists' method='post'>
+            <form action='/delete_stylists' method='post'>
                 <button type='submit' class='btn btn-danger'>DELETE STYLISTS</button>
             </form>
 
+            {% if stylists is not empty %}
+                <p>STYLISTS (CLICK TO ADD):</p>
+                <ul>
+                    {% for stylist in stylists %}
+                    <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getStylistName}}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>NO STYLISTS YET.</p>
+            {% endif %}
         </div>
-
     </body>
 </html>

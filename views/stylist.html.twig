@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <title>STYLISTS</title>
+    </head>
+    <body>
+        <div class='container'>
+            <h1>{{ stylist.getStylistName }}</h1>
+
+            {% if clients is not empty %}
+                <p>CLIENTS:</p>
+                <ul>
+                    {% for client in clients%}
+                        <li>{{ client.getClientName }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <h3>ADD A CLIENT:</h3>
+
+            <form action='/clients' method='post' class="form-inline">
+                <div class='form-group'>
+
+                    <input id='stylist_id' name='stylist_id' type='hidden' value='{{ stylist.getId }}'>
+
+                    <label for='client_name'>CLIENT NAME:</label>
+                    <input id='client_name' name='client_name' class='form-control' type='text'>
+                </div>
+
+                <button type='submit' class='btn btn-info'>ADD CLIENT</button>
+            </form>
+
+            <form action='/delete_restaurants' method='post'>
+                <button type='submit' class='btn btn-danger'>Clear list</button>
+            </form>
+
+            <p><a href='/'>Home</a></p>
+
+
+
+
+
+        </div>
+    </body>
+</html>

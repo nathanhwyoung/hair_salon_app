@@ -66,13 +66,29 @@
 
         function updateStylistName($new_stylist_name)
         {
-            $GLOBALS['DB']->exec("UPDATE stylists SET stylist_name = '{$new_stylist_name}' WHERE id = {$this->getId()};");
+            $GLOBALS['DB']->exec("UPDATE stylists SET stylist_name =
+                '{$new_stylist_name}' WHERE id = {$this->getId()};");
             $this->setStylistName($new_stylist_name);
         }
 
         function delete()
         {
             $GLOBALS['DB']->exec("DELETE FROM stylists WHERE id = {$this->getId()};");
+        }
+
+        function getClients()
+        {
+            $clients = array();
+            $returned_clients = $GLOBALS['DB']->query("SELECT * FROM clients
+                WHERE (stylist_id) = {$this->getId()};");
+                foreach($returned_clients as $client) {
+                    $client_name = $client['client_name'];
+                    $id = $client['id'];
+                    $stylist_id = $client['stylist_id'];
+                    $new_client = new Client($client_name, $id, $stylist_id);
+                    array_push($clients, $new_client);
+                }
+                return $clients;
         }
     }
 
