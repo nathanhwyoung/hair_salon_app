@@ -54,24 +54,12 @@
         return $app['twig']->render('index.html.twig', array('stylist' => Stylist::getAll()));
     });
 
+    $app->get("/clients/{id}", function($id) use ($app) {
+        // $restaurant = new Restaurant($_POST['name'], $id = null, $cuisine_id, $_POST['price_range'], $_POST['neighborhood']);
+        $client = Client::find($id);
+        return $app['twig']->render('clients.html.twig', array('clients' => $client));
+    });
 
-
-
-
-
-
-
-
-
-
-
-    //
-    // $app->get("/restaurants/{id}/edit", function($id) use ($app) {
-    //     // $restaurant = new Restaurant($_POST['name'], $id = null, $cuisine_id, $_POST['price_range'], $_POST['neighborhood']);
-    //     $restaurant = Restaurant::find($id);
-    //     return $app['twig']->render('restaurant_edit.html.twig', array('restaurant' => $restaurant));
-    // });
-    //
     // $app->patch("/restaurants/{id}", function($id) use ($app) {
     //     $name = $_POST['name'];
     //     $price_range = $_POST['price_range'];

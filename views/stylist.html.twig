@@ -1,17 +1,17 @@
 <html>
     <head>
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
-        <title>STYLISTS</title>
+        <title>HAIR SALON</title>
     </head>
     <body>
         <div class='container'>
-            <h1>{{ stylist.getStylistName }}</h1>
+            <h1>STYLIST: {{ stylist.getStylistName }}</h1>
 
             {% if clients is not empty %}
-                <p>CLIENTS:</p>
+                <p>CLIENTS (CLICK TO EDIT):</p>
                 <ul>
                     {% for client in clients%}
-                        <li>{{ client.getClientName }}</li>
+                        <li><a href="/clients/{{ client.getId }}">{{ client.getClientName}}</a></li>
                     {% endfor %}
                 </ul>
             {% endif %}
@@ -27,7 +27,7 @@
                     <input id='client_name' name='client_name' class='form-control' type='text'>
                 </div>
 
-                <button type='submit' class='btn btn-info'>ADD CLIENT</button>
+                <button type='submit' class='btn btn-info'>SUBMIT</button>
             </form>
 
             <form action='/delete_clients' method='post'>
