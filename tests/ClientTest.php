@@ -13,4 +13,9 @@
     $password = 'root';
     $DB = new PDO($server, $username, $password);
 
+    class ClientTest extends PHPUnit_Framework_TestCase
+    {
+        
+    }
+
 ?>
