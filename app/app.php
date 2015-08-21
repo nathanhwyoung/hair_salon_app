@@ -35,7 +35,7 @@
     return $app['twig']->render('index.html.twig', array('stylist' => Stylist::getAll()));
     });
 
-    $app->get("/stylists/{id}", function($id) use ($app) {
+    $app->get("/stylists/{id}/edit", function($id) use ($app) {
         $stylist = Stylist::find($id);
         return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
     });
@@ -54,22 +54,41 @@
         return $app['twig']->render('index.html.twig', array('stylist' => Stylist::getAll()));
     });
 
-    $app->get("/clients/{id}", function($id) use ($app) {
-        // $restaurant = new Restaurant($_POST['name'], $id = null, $cuisine_id, $_POST['price_range'], $_POST['neighborhood']);
-        $client = Client::find($id);
-        return $app['twig']->render('clients.html.twig', array('clients' => $client));
+    $app->get("/stylists/{id}/edit", function($id) use ($app) {
+        $stylist = Stylist::find($id);
+        return $app['twig']->render('stylist_edit.html.twig', array('stylist' => $stylist));
     });
 
-    // $app->patch("/restaurants/{id}", function($id) use ($app) {
-    //     $name = $_POST['name'];
-    //     $price_range = $_POST['price_range'];
-    //     $neighborhood = $_POST['neighborhood'];
-    //     $restaurant = Restaurant::find($id);
-    //     $restaurant->updateName($name);
-    //     $restaurant->updatePriceRange($price_range);
-    //     $restaurant->updateNeighborhood($neighborhood);
-    //     return $app['twig']->render('cuisine.html.twig', array('cuisines' => $cuisine, 'restaurants' => $cuisine->getRestaurants()));
-    // });
+    $app->get("/clients/{id}/edit", function($id) use ($app) {
+        $client = Client::find($id);
+        return $app['twig']->render('client_edit.html.twig', array('clients' => $client));
+    });
+
+    $app->patch("/stylists/{id}", function($id) use ($app) {
+        $new_stylist_name = $_POST['new_stylist_name'];
+        $stylist = Stylist::find($id);
+        $stylist->updateStylistName($new_stylist_name);
+        return $app['twig']->render('index.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
+    });
+
+    $app->patch("/clients/{id}", function($id) use ($app) {
+        $new_client_name = $_POST['new_client_name'];
+        $client = CLient::find($id);
+        $client->updateClientName($new_client_name);
+        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
+    });
+
+    $app->delete("/stylists/{id}", function($id) use ($app) {
+        $stylist = Stylist::find($id);
+        $stylist->delete();
+        return $app['twig']->render('index.html.twig', array('stylist' => $stylist));
+    });
+
+    $app->delete("/categories/{id}", function($id) use ($app) {
+        $client = Client::find($id);
+        $client->delete();
+        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
+    });
 
     return $app;
 

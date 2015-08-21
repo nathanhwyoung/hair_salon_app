@@ -5,10 +5,10 @@
     </head>
     <body>
         <div class='container'>
-            <h1>STYLIST: {{ stylist.getStylistName }}</h1>
+            <h1>STYLIST: <a href="/stylist_edit/{{ stylist.getId }}">{{ stylist.getStylistName}}</a></h1>
 
             {% if clients is not empty %}
-                <p>CLIENTS (CLICK TO EDIT):</p>
+                <p>CLIENTS:</p>
                 <ul>
                     {% for client in clients%}
                         <li><a href="/clients/{{ client.getId }}">{{ client.getClientName}}</a></li>

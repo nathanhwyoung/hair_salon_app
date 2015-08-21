@@ -19,7 +19,7 @@
             </form>
 
             {% if stylist is not empty %}
-                <p>STYLISTS (CLICK TO ADD CLIENTS):</p>
+                <p>STYLISTS:</p>
                 <ul>
                     {% for stylist in stylist %}
                     <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getStylistName}}</a></li>
