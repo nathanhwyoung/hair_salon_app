@@ -20,24 +20,24 @@
     Request::enableHttpMethodParameterOverride();
 
     $app->get("/", function() use ($app) {
-        return $app['twig']->render('index.html.twig', array('stylists' =>
+        return $app['twig']->render('index.html.twig', array('stylist' =>
         Stylist::getAll()));
     });
 
     $app->post("/stylists", function() use ($app) {
         $stylist = new Stylist($_POST['stylist_name']);
         $stylist->save();
-        return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
+        return $app['twig']->render('index.html.twig', array('stylist' => Stylist::getAll()));
     });
 
     $app->post("/delete_stylists", function() use ($app) {
         Stylist::deleteAll();
-    return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
+    return $app['twig']->render('index.html.twig', array('stylist' => Stylist::getAll()));
     });
 
     $app->get("/stylists/{id}", function($id) use ($app) {
         $stylist = Stylist::find($id);
-        return $app['twig']->render('stylist.html.twig', array('stylists' => $stylist, 'clients' => $stylist->getClients()));
+        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
     });
 
     $app->post("/clients", function() use ($app){
@@ -49,14 +49,10 @@
         return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
     });
 
-
-
-
-
-    // $app->post("/delete_restaurants", function() use ($app){
-    //     Restaurant::deleteAll();
-    //     return $app['twig']->render('index.html.twig', array('cuisines' => Cuisine::getAll()));
-    // });
+    $app->post("/delete_clients", function() use ($app){
+        Client::deleteAll();
+        return $app['twig']->render('index.html.twig', array('stylist' => Stylist::getAll()));
+    });
 
 
 

@@ -18,10 +18,10 @@
                 <button type='submit' class='btn btn-danger'>DELETE STYLISTS</button>
             </form>
 
-            {% if stylists is not empty %}
-                <p>STYLISTS (CLICK TO ADD):</p>
+            {% if stylist is not empty %}
+                <p>STYLISTS (CLICK TO ADD CLIENTS):</p>
                 <ul>
-                    {% for stylist in stylists %}
+                    {% for stylist in stylist %}
                     <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getStylistName}}</a></li>
                     {% endfor %}
                 </ul>
