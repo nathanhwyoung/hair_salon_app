@@ -94,10 +94,12 @@
             $client_name = "Alfred";
             $stylist_id = $test_stylist->getId();
             $test_client = new Client($client_name, $id, $stylist_id);
+            $test_client->save();
 
             $client_name2 = "Ludacris";
             $stylist_id = $test_stylist->getId();
             $test_client2 = new Client($client_name2, $id, $stylist_id);
+            $test_client2->save();
 
             //act
             $result = Client::getAll();
@@ -141,10 +143,13 @@
             $client_name = "Alfred";
             $stylist_id = $test_stylist->getId();
             $test_client = new Client($client_name, $id, $stylist_id);
+            $test_client->save();
 
             $client_name2 = "Ludacris";
             $stylist_id = $test_stylist->getId();
             $test_client2 = new Client($client_name2, $id, $stylist_id);
+            $test_client2->save();
+
 
             //act
             $id = $test_client->getId();
@@ -154,7 +159,7 @@
             $this->assertEquals($test_client, $result);
         }
 
-        function test_updateName()
+        function test_updateClientName()
         {
             //arrange
             $stylist_name = "Lisa";
@@ -169,7 +174,7 @@
             $new_client_name = "Steven";
 
             //act
-            $test_client->updateName($new_client_name);
+            $test_client->updateClientName($new_client_name);
 
             //assert
             $this->assertEquals("Steven", $test_client->getClientName());
@@ -186,10 +191,14 @@
             $client_name = "Alfred";
             $stylist_id = $test_stylist->getId();
             $test_client = new Client($client_name, $id, $stylist_id);
+            $test_client->save();
+
 
             $client_name2 = "Ludacris";
             $stylist_id = $test_stylist->getId();
             $test_client2 = new Client($client_name2, $id, $stylist_id);
+            $test_client2->save();
+
 
             $test_client->delete();
 

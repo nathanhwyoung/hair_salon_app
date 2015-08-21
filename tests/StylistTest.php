@@ -17,8 +17,8 @@
     {
         protected function tearDown()
         {
-            Restaurant::deleteAll();
-            Cuisine::deleteAll();
+            Stylist::deleteAll();
+            Client::deleteAll();
         }
 
         function test_getStylistName()
@@ -40,9 +40,10 @@
             $stylist_name = "Agnes";
             $id = 1;
             $test_stylist = new Stylist($stylist_name);
+            $test_stylist->save();
 
             //act
-            $result = $test_stylist::getId();
+            $result = $test_stylist->getId();
 
             //assert
             $this->assertEquals(true, is_numeric($result));
@@ -93,7 +94,7 @@
             $test_stylist2->save();
 
             //act
-            Stylist::deleteAll;
+            Stylist::deleteAll();
             $result = Stylist::getAll();
 
             //assert
@@ -129,7 +130,7 @@
             $new_stylist_name = "Dora";
 
             //act
-            $test_stylist->update($new_stylist_name);
+            $test_stylist->updateStylistName($new_stylist_name);
 
             //assert
             $this->assertEquals("Dora", $test_stylist->getStylistName());
