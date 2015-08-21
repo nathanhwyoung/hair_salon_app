@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <title>HAIR SALON</title>
+    </head>
+    <body>
+        <div class='container'>
+            <h1>Stylists:</h1>
+            <form action="/stylists" method="post">
+                <div class='form-group'>
+                    <label for="stylist_name">ADD A STYLIST:</label>
+                    <input id="stylist_name" name="stylist_name" class='form-control' type="text">
+                </div>
+                <button type="submit" class='btn btn-info'>SUBMIT</button>
+            </form>
+
+            <form action='/delete_all_stylists' method='post'>
+                <button type='submit' class='btn btn-danger'>DELETE STYLISTS</button>
+            </form>
+
+        </div>
+
+    </body>
+</html>
