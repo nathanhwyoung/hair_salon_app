@@ -5,7 +5,7 @@
     </head>
     <body>
         <div class='container'>
-            <h1>STYLIST: <a href="/stylist_edit/{{ stylist.getId }}">{{ stylist.getStylistName}}</a></h1>
+            <h1>STYLIST: <a href="/stylist/{{ stylist.getId }}/edit/">{{ stylist.getStylistName}}</a></h1>
 
             {% if clients is not empty %}
                 <p>CLIENTS:</p>

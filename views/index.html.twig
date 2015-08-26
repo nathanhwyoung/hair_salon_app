@@ -6,7 +6,7 @@
     <body>
         <div class='container'>
             <h1>WELCOME TO HAIR SALON</h1>
-            <form action="/stylists" method="post">
+            <form action="/stylist" method="post">
                 <div class='form-group'>
                     <label for="stylist_name">ADD A STYLIST:</label>
                     <input id="stylist_name" name="stylist_name" class='form-control' type="text">
@@ -22,7 +22,7 @@
                 <p>STYLISTS:</p>
                 <ul>
                     {% for stylist in stylist %}
-                    <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getStylistName}}</a></li>
+                    <li><a href="/stylist/{{ stylist.getId }}">{{ stylist.getStylistName}}</a></li>
                     {% endfor %}
                 </ul>
             {% else %}
