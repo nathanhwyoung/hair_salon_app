@@ -1,6 +1,6 @@
-# _{Application Name}_
+# _Hair Salon App_
 
-##### _{Brief description of application}, {Date of current version}_
+##### _Add & Deletes Clients & Stylists, 08/26/2015_
 
 #### By _**{List of contributors}**_
 
