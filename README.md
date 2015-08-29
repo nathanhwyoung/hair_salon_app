@@ -6,25 +6,27 @@
 
 ## Description
 
-_{This is a detailed description of your application. Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. Do you want other developers to use this code in their apps? Talk about things like that here in simple terms.}_
+_This application allows a user to add hair salon stylists to a list. They may
+also be updated and deleted. Clients may be then be added to the lists of
+individual stylists. The clients can also be updated and deleted._
 
 ## Setup
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
+* _clone https://github.com/nhwilcox/hair_salon_app _
+* _run $composer install in top-level project folder_
+* _start MYSQL and APACHE servers_
+* _start PHP server from web directory_
+* _run phpmyadmin from localhost:8080/phpmyadmin and import hair_salon database_
+* _navigate web browser to localhost:8000_
+
 
 ## Technologies Used
 
-_{Tell me about the languages you used to create this app. Assume that I know you probably used HTML and CSS. If you did something really cool using only HTML, point that out.}_
+_PHP, PHPUnit, Silex, Twig, HTML, CSS, Bootstrap, MYSQL_
 
 ### Legal
 
-*{This is boilerplate legal language. Read through it, and if you like it, use it. There are other license agreements online, but you can generally copy and paste this.}*
-
-Copyright (c) 2015 **_{List of contribtors}_**
+Copyright (c) 2015 **_Nathan Young_**
 
 This software is licensed under the MIT license.
 
