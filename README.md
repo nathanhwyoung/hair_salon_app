@@ -2,7 +2,7 @@
 
 ##### _Add & Deletes Clients & Stylists, 08/26/2015_
 
-#### By _**{List of contributors}**_
+#### By _**Nathan Young**_
 
 ## Description
 
@@ -15,8 +15,6 @@ _{This is a detailed description of your application. Give as much detail as nee
 * _in a simple_
 * _easy-to-understand_
 * _format_
-
-_{Leave nothing to chance! You want it to be easy for potential employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Are there other applications this app depends on?}_
 
 ## Technologies Used
 
